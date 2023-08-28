@@ -1,0 +1,29 @@
+-- DESIGN A STORE DATABASE 
+
+CREATE TABLE clothing_store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, quantity INTEGER, row INTEGER);
+INSERT INTO clothing_store VALUES (1,"shirt",10,6,1);
+INSERT INTO clothing_store VALUES (2,"short",8,8,2);
+INSERT INTO clothing_store VALUES (3,"jeans",20,4,2);
+INSERT INTO clothing_store VALUES (4,"bra",16,5,3);
+INSERT INTO clothing_store VALUES (5,"sock",8,7,3);
+INSERT INTO clothing_store VALUES (6,"bralette",18,3,3);
+INSERT INTO clothing_store VALUES (7,"belt",4,10,4);
+INSERT INTO clothing_store VALUES (8,"skirt",16,12,2);
+INSERT INTO clothing_store VALUES (9,"sweater",26,15,5);
+INSERT INTO clothing_store VALUES (10,"cardigan",30,6,5);
+INSERT INTO clothing_store VALUES (11,"necklace",6,3,4);
+INSERT INTO clothing_store VALUES (12,"bracelet",2,2,4);
+INSERT INTO clothing_store VALUES (13,"scarf",4,1,4);
+INSERT INTO clothing_store VALUES (14,"shoes",19,20,4);
+
+-- DISPLAY ALL DATA FROM THE DATABASE
+SELECT * FROM clothing_store;
+
+-- ORDER ALL ITEMS FROM THE DATABASE BY PRICE 
+SELECT * FROM clothing_store GROUP BY price;
+
+-- ONLY DISPLAY ALL ITEMS THAT ARE PRICED AT $25 OR MORE 
+SELECT * FROM clothing_store WHERE price>=25 ORDER BY price;
+
+-- SHOW AVERAGE PRICE OF ITEMS IN THE STORE
+SELECT avg(price) "Average Price of Items" FROM clothing_store;
