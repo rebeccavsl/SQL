@@ -1,0 +1,115 @@
+/*In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
+For example, here are types of famous people and the questions your data could answer:
+Movie stars: What movies are they in? Are they married to each other?
+Singers: What songs did they write? Where are they from?
+Authors: What books did they write?
+Fictional characters: How are they related to other characters? What books do they show up in?*/
+
+
+CREATE TABLE Minecraft_Characters (id INTEGER PRIMARY KEY autoincrement, name TEXT, creation_year INTEGER, mood TEXT, base_id INTEGER, gender TEXT);
+CREATE TABLE Minecraft_Bases (id INTEGER PRIMARY KEY autoincrement, name TEXT, char_id INTEGER, region TEXT);
+CREATE TABLE Battles (id INTEGER PRIMARY KEY autoincrement, name TEXT, month_occurred TEXT, win_lead_char_id INTEGER, winning_base_name INTEGER, region_fought TEXT);
+CREATE TABLE Battle_Buddies (id INTEGER PRIMARY KEY autoincrement, buddy_1_id INTEGER, buddy_2_id INTEGER);
+
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('steve', 2009, 'friendly', 1, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('alex', 2014, 'friendly', 1, 'female');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('horse', 2013, 'tameable', 2, 'either');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('cow', 2012, 'passive', 2, 'either');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('zombie', 2012, 'hostile', 3, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('skeleton', 2011, 'hostile', 3, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('spider', 2009, 'hostile', 3, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('creeper', 2009, 'hostile', 3, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('pig', 2012, 'tameable', 2, 'either');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('cat', 2018, 'tameable', 1, 'either');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('chicken', 2012, 'passive', 2, 'either');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('ghast', 2010, 'hostile', 4, 'female');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('piglin', 2020, 'passive', 4, 'either');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('ender Dragon', 2011, 'hostile', 5, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('shulker', 2015, 'hostile', 5, 'male');
+INSERT INTO Minecraft_Characters (name, creation_year, mood, base_id, gender) VALUES ('villager', 2011, 'passive', 1, 'either');
+
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('village', 1, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('village', 2, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('above_ground_biome', 3, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('above_ground_biome', 4, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('cave_biome', 5, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('cave_biome', 6, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('cave_biome', 7, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('cave_biome', 8, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('above_ground_biome', 9, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('village', 10, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('above_ground_biome', 11, 'overworld');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('nether', 12, 'nether');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('nether', 13, 'nether');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('the_end', 14, 'the_end');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('the_end', 15, 'the_end');
+INSERT INTO Minecraft_Bases (name, char_id, region) VALUES ('village', 16, 'overworld');
+
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_1', 'february', 6, 'cave_biome', 'village');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_2', 'april', 14, 'the_end', 'the_end');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_3', 'april', 1, 'village', 'cave_biome');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_4', 'july', 1, 'village', 'nether');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_5', 'december', 2, 'village', 'the_end');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_6', 'august', 4, 'above_ground_biome', 'cave_biome');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_7', 'october', 16, 'the_end', 'the_end');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_8', 'december', 2, 'village', 'overworld');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_9', 'january', 10, 'above_ground_biome', 'village');
+INSERT INTO Battles (name, month_occurred, win_lead_char_id, winning_base_name, region_fought) VALUES ('battle_10', 'september', 13, 'nether', 'nether');
+
+INSERT INTO Battle_Buddies (buddy_1_id, buddy_2_id) VALUES (2, 3);
+INSERT INTO Battle_Buddies (buddy_1_id, buddy_2_id) VALUES (5, 11);
+INSERT INTO Battle_Buddies (buddy_1_id, buddy_2_id) VALUES (6, 7);
+INSERT INTO Battle_Buddies (buddy_1_id, buddy_2_id) VALUES (1, 16);
+INSERT INTO Battle_Buddies (buddy_1_id, buddy_2_id) VALUES (12, 13);
+INSERT INTO Battle_Buddies (buddy_1_id, buddy_2_id) VALUES (4, 9);
+
+/*Which characters live at each base?*/
+SELECT a.name, b.name, b.region
+FROM Minecraft_Characters a
+INNER JOIN Minecraft_Bases b
+ON a.base_id=b.id;
+
+/*Which battles were won by leaders who do not live in the overworld region?*/
+SELECT a.name, c.name, c.winning_base_name
+FROM Battles c
+LEFT OUTER JOIN Minecraft_Characters a
+ON a.id=c.win_lead_char_id
+LEFT OUTER JOIN Minecraft_Bases b
+ON b.name=c.winning_base_name
+GROUP BY a.name
+HAVING b.region NOT LIKE '%overworld%';
+
+/*How many hostile mobs are in Minecraft?*/
+SELECT COUNT (*) AS 'hostile_mob_count'
+FROM Minecraft_Characters
+WHERE mood LIKE '%hostile%';
+
+/*How many battles (and which ones) were fought in the summer or fall months?*/
+SELECT name, month_occurred
+FROM Battles
+WHERE month_occurred LIKE '%june%' 
+OR month_occurred LIKE '%july%' 
+OR month_occurred LIKE '%august%' 
+OR month_occurred LIKE '%september%' 
+OR month_occurred LIKE 'october%' 
+OR month_occurred LIKE '%november%';
+
+SELECT COUNT(id) AS 'summer_fall_battles'
+FROM Battles
+WHERE month_occurred LIKE '%june%' 
+OR month_occurred LIKE '%july%' 
+OR month_occurred LIKE '%august%' 
+OR month_occurred LIKE '%september%' 
+OR month_occurred LIKE '%october%' 
+OR month_occurred LIKE '%november%';
+
+/*Which characters have been around the longest? The shortest?*/
+SELECT name, creation_year,
+    CASE
+        WHEN creation_year BETWEEN 2009 AND 2012 THEN 'original'
+        WHEN creation_year BETWEEN 2013 AND 2016 THEN 'first_update'
+        WHEN creation_year BETWEEN 2017 AND 2020 THEN 'second_update'
+        ELSE 'third_update'
+    END as character_timeline
+FROM Minecraft_Characters
+ORDER BY creation_year;
